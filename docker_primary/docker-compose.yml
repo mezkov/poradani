@@ -1,0 +1,16 @@
+services:
+  QE_primary:
+    image: postgres:18.3
+    container_name: QE_primary
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: quickevent
+      POSTGRES_DB: quickevent
+    volumes:
+      - QE_primary:/var/lib/postgresql
+    command: ["postgres", "-c", "wal_keep_size=128MB"]
+
+volumes:
+  QE_primary:

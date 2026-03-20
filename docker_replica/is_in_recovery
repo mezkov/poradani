@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -it QE_replica psql -U postgres -c "SELECT pg_is_in_recovery();"

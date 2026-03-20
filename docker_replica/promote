@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -it QE_replica su postgres -c 'pg_ctl promote'

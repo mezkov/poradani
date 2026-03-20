@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker compose up -d
+docker exec -it QE_primary bash -c "echo 'host replication all 0.0.0.0/0 trust' >> /var/lib/postgresql/18/docker/pg_hba.conf"
+docker restart QE_primary

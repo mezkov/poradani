@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -it QE_primary psql -U postgres -c "SHOW wal_keep_size;"

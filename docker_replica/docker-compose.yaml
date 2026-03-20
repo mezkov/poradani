@@ -1,0 +1,19 @@
+services:
+  QE_replica:
+    image: postgres:18.3
+    container_name: QE_replica
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - QE_replica:/var/lib/postgresql
+    # We override the entrypoint to check if data exists; if not, it pulls from primary
+    command: >
+      bash -c "if [ -z \"$(ls -A /var/lib/postgresql)\" ]; then
+                mkdir -p /var/lib/postgresql/18/docker;
+                pg_basebackup -h 192.168.1.15 -D /var/lib/postgresql/18/docker -U postgres -P -R -X stream;
+              fi;
+              exec docker-entrypoint.sh postgres"
+
+volumes:
+  QE_replica:
