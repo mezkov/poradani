@@ -4,7 +4,7 @@ services:
     container_name: QE_replica
     restart: always
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - QE_replica:/var/lib/postgresql
     # We override the entrypoint to check if data exists; if not, it pulls from primary
