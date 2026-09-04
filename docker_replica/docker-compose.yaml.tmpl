@@ -11,7 +11,7 @@ services:
     command: >
       bash -c "if [ -z \"$(ls -A /var/lib/postgresql)\" ]; then
                 mkdir -p /var/lib/postgresql/18/docker;
-                pg_basebackup -h 192.168.1.15 -D /var/lib/postgresql/18/docker -U postgres -P -R -X stream;
+                pg_basebackup -h PRIMARY_IP -D /var/lib/postgresql/18/docker -U postgres -P -R -X stream;
               fi;
               exec docker-entrypoint.sh postgres"
 

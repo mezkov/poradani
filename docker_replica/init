@@ -1,3 +1,12 @@
 #!/bin/bash
 
+PRIMARY_IP=$1
+
+if [ -z "$PRIMARY_IP" ]; then
+    echo provide IP address of the primary database
+    exit
+fi
+
+sed "s/PRIMARY_IP/$PRIMARY_IP/" docker-compose.yaml.tmpl > docker-compose.yaml
+
 docker compose up -d
