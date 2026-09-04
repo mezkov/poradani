@@ -1,0 +1,11 @@
+#!/bin/bash
+
+read -p "Do you really wand to erase the QE database? [y/N] " odpoved
+if [[ "$odpoved" != [yY] ]]; then
+    echo "Quit."
+    exit 1
+fi
+
+docker stop QE_primary
+docker container rm QE_primary
+docker volume rm docker_primary_QE_primary

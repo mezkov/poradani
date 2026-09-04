@@ -1,0 +1,11 @@
+#!/bin/bash
+
+read -p "Do you really wand to erase the replica of QE database? [y/N] " odpoved
+if [[ "$odpoved" != [yY] ]]; then
+    echo "Quit."
+    exit 1
+fi
+
+docker stop QE_replica
+docker container rm QE_replica
+docker volume rm docker_replica_QE_replica
