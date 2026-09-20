@@ -1,0 +1,15 @@
+OFeed:
+
+Na stránce nastavení (https://orienteerfeed.com/events/cmssqca8v000508mpa1r6e7ih/settings)
+je panýlek "Heslo akce". Pokud je heslo prázdné, je potřeba kliknout na tlačítko "Generovat heslo".
+Pokud tam heslo už je, jsou tam tlačítka "Přegenerovat heslo" a "Zneplatnit". Na ty NEKLIKAT!!!
+Jinak dojde k přerušení spojení ze všech aplikací, které to původní heslo měly nastavené.
+
+Po vygenerování hesla jsou na panýlku "Nastavení aplikací" podtím popsané údaje pro různé programy.
+Pro QuickEventa stačí kliknout na "Kopírovat přihlašovací údaje". V QE pak v panýlku "Služby"
+(jde zobrazit/skrýt v menu "Zobrazit") v rámečku OFeed kliknout na ozubené kolečko a v nastavení
+kliknout na tlačítko "Vlož přihlašovací údaje". Pak se v rámečku OFeed v panýlku "Služby" klikne
+na trojúhelníček a už to jede.
+
+Pokud je QE spuštěn vícekrát, stačí mít OFeed spuštěný jen na jednom z nich. Do OFeedu to posílá
+okamžitě i změny provedené na ostatních QE.
