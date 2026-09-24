@@ -1,0 +1,11 @@
+#!/bin/bash
+
+OUT_FILE=$1
+
+if [ -z "$OUT_FILE" ]; then
+  echo "no file provided."
+  exit
+fi
+
+docker exec -it QE_primary bash -c "pg_dump -U postgres -d quickevent -F c -b -f /tmp/backup"
+docker cp QE_primary:/tmp/backup $OUT_FILE

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+BACKUP_DIR="./backupdir"
+mkdir -p $BACKUP_DIR
+
+while true; do
+  DATE=$(date +%y%m%d_%H%M%S)
+  BACKUP_FILE=$BACKUP_DIR/$DATE.bkp
+  echo "creating backup to $BACKUP_FILE"
+  ./backup $BACKUP_FILE
+  sleep 60
+done

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DB_NAME=$1
+IN_FILE=$2
+
+if [ -z "$DB_NAME" ]; then
+  echo "provide DB name."
+  exit
+fi
+
+if [ "$DB_NAME" = "quickevent" ]; then
+  echo "DB name can't be quickevent"
+  exit
+fi
+
+if [ -z "$IN_FILE" ]; then
+  echo "provide filename of the backup."
+  exit
+fi
+
+docker exec QE_primary bash -c "createdb -U postgres $DB_NAME"
+docker cp $IN_FILE QE_primary:/tmp/restore
+docker exec QE_primary bash -c "pg_restore -U postgres -d $DB_NAME -v /tmp/restore"
